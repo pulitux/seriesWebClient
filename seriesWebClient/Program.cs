@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddTransient<InterfacePersonaje, RepositoryPersonaje>();
+builder.Services.AddTransient<InterfaceSerie, RepositorySerie>();
 
 builder.Services.AddControllersWithViews();
 

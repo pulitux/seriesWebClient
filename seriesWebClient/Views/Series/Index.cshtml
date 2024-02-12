@@ -1,4 +1,4 @@
-﻿@model IEnumerable<seriesWebClient.Models.Personaje>
+﻿@model IEnumerable<seriesWebClient.Models.Serie>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,13 +7,13 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="InsPersonaje">Añadir personaje</a>
+    <a asp-action="InsSerie">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IdPersonaje)
+                @Html.DisplayNameFor(model => model.IdSerie)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
@@ -22,7 +22,10 @@
                 @Html.DisplayNameFor(model => model.Imagen)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdSerie)
+                @Html.DisplayNameFor(model => model.Puntuacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anyo)
             </th>
             <th></th>
         </tr>
@@ -31,7 +34,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.IdPersonaje)
+                @Html.DisplayFor(modelItem => item.IdSerie)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nombre)
@@ -40,12 +43,15 @@
                 <img src="@item.Imagen" style="height:150px" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdSerie)
+                @Html.DisplayFor(modelItem => item.Puntuacion)
             </td>
             <td>
-                @Html.ActionLink("Editar", "ModPersonaje", new { idpersonaje = item.IdPersonaje }) |
-                @Html.ActionLink("Detalles", "DetallesPersonaje", new { idpersonaje = item.IdPersonaje }) |
-                @Html.ActionLink("Borrar", "DelPersonaje", new { idpersonaje = item.IdPersonaje })
+                @Html.DisplayFor(modelItem => item.Anyo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "ModSerie", new { idserie = item.IdSerie }) |
+                @Html.ActionLink("Detalles", "DetallesSerie", new { idserie = item.IdSerie }) |
+                @Html.ActionLink("Borrar", "DelSerie", new { idserie = item.IdSerie })
             </td>
         </tr>
 }

@@ -58,5 +58,10 @@ namespace seriesWebClient.Controllers
             await this.repo.BuscarPersonaje(idpersonaje);
             return RedirectToAction("Index", "Personajes");
         }
+        public async Task<IActionResult> DelPersonaje(int idpersonaje)
+        {
+            await repo.EliminarPersonaje(idpersonaje);
+            return RedirectToAction("Index", "Personajes");
+        }
     }
 }
